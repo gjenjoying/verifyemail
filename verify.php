@@ -1,6 +1,6 @@
 <?php 
 require 'vendor/autoload.php';
-require_once './../medoo.php';
+require_once 'medoo.php';
 $db = new Medoo([
 	'database_type' => 'sqlite',
 	'database_file' => 'verifyemail.sqlite'
