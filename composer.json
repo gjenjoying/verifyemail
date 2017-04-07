@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hbattat/verifyemail": "^1.0"
+    }
+}

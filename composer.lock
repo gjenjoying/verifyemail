@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2a34a9e16157c23cbe5fabe7f47b914b",
+    "packages": [
+        {
+            "name": "hbattat/verifyemail",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hbattat/verifyEmail.git",
+                "reference": "10021d3eb921f064ba438e834d37be82e9e966e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hbattat/verifyEmail/zipball/10021d3eb921f064ba438e834d37be82e9e966e5",
+                "reference": "10021d3eb921f064ba438e834d37be82e9e966e5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.27"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hbattat\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Battat",
+                    "email": "hbattat@msn.com"
+                }
+            ],
+            "description": "PHP class that can be easily used to verify an email address and make sure it is valid and does exist on the mail server.",
+            "time": "2016-12-16T23:45:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
