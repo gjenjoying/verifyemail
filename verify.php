@@ -57,6 +57,6 @@ $from=$names[array_rand($names,1)].rand(10,100).$domains[array_rand($domains,1)]
 $ve = new hbattat\VerifyEmail($email, $from);
 
 print_r($ve->get_errors());
-echo $id.' '.$email.' done';
+echo $id.' '.$email.' veirfied by '.$from.' result: ';
 	return $ve->verify();
 }
