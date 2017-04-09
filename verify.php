@@ -48,7 +48,13 @@ function verify(){
 
 function verifyEmail($email,$id){
 
-$ve = new hbattat\VerifyEmail($email, 'me@reachlinked.org');
+//设置！
+$names=array('david','black','joe','rose','mike','brown','zend','yii','laravel','thinkphp','basf','trumb');
+$domains=array('@vip.jhclothes.com','@info.jhclothes.com','@email.jhclothes.com','@mail.jhclothes.com','@notcie.jhclothes.com');//这个要真设置了才能写的！
+
+$from=$names[array_rand($names,1)].rand(10,100).$domains[array_rand($domains,1)];
+
+$ve = new hbattat\VerifyEmail($email, $from);
 
 print_r($ve->get_errors());
 echo $id.' '.$email.' done';
