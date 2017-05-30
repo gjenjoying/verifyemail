@@ -1,4 +1,6 @@
 <?php 
+//这个是专门给xixisys e-chem用的
+//rl的另外弄一个 因为db中的field有些不同了 文件名称也不同
 require 'vendor/autoload.php';
 require_once 'medoo.php';
 $db = new Medoo([
@@ -16,7 +18,7 @@ function verify(){
 
 	global $db;
 	$record=$db->get('xixi_emails_better',['email','id'],[
-		'valid_hbattat'=>'no_hbattat',
+		'valid'=>'unknown',
 		]);
 	
 	if(!$record){
@@ -25,19 +27,20 @@ function verify(){
 	}
 	
 	$db->update('xixi_emails_better',[
-		'valid_hbattat'=>'doing'
+		'valid'=>'doing'
 		],[
 		'id'=>$record['id'],
 		]);
 	
 	$result=verifyEmail($record['email'],$record['id']);
 	if($result){
-		$resultText='yes_hbattat_do2';
+		$resultText='yes';
 	}else{
-		$resultText='no_hbattat_do2';
+		$resultText='no';
 	}
-	echo ' | '.$result['id'].' '.$resultText."\n";
-	$db->update('xixi_emails_better',['valid_hbattat'=>$resultText],[
+	date_default_timezone_set('Asia/Shanghai');
+	echo ' | '.$result['id'].' '.$resultText.' at '.date('Y-m-d H:i:s')."\n";
+	$db->update('xixi_emails_better',['valid'=>$resultText],[
 			'id'=>$record['id'],
 			]);
 	
@@ -49,8 +52,8 @@ function verify(){
 function verifyEmail($email,$id){
 
 //设置！
-$names=array('david','black','joe','rose','mike','brown','zend','yii','laravel','thinkphp','basf','trumb');
-$domains=array('@vip.jhclothes.com','@info.jhclothes.com','@email.jhclothes.com','@mail.jhclothes.com','@notcie.jhclothes.com');//这个要真设置了才能写的！
+$names=array('david','joe','rose','mike','brown','trumb','amy','ellen','Aaron','Abbas','Abelard','Ableson','Abner','Adolph','Aesculapius','Aelfric','Baal','Bacchus','Balaam','Caldwell','Carlson','Carney','Dailey','Damian','Dante');
+$domains=array('@vip.jhclothes.com','@info.jhclothes.com','@email.jhclothes.com','@mail.jhclothes.com','@notice.jhclothes.com','@shanghai.jhclothes.com','@beijing.jhclothes.com','@nanjing.jhclothes.com','@hangzhou.jhclothes.com','@chengdu.jhclothes.com','@shenzhen.jhclothes.com','@guangzhou.jhclothes.com','@chongqing.jhclothes.com');//这个要真设置了才能写的！
 
 $from=$names[array_rand($names,1)].rand(10,100).$domains[array_rand($domains,1)];
 
