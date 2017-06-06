@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 require_once 'medoo.php';
 $db = new Medoo([
 	'database_type' => 'sqlite',
-	'database_file' => 'verify_by_do.sqlite'
+	'database_file' => 'verify_by_do_english.sqlite'
 ]);
 
 
@@ -17,8 +17,8 @@ verify();
 function verify(){
 
 	global $db;
-	$record=$db->get('xixi_emails_better',['email','id'],[
-		'valid'=>'unknown',
+	$record=$db->get('xixi_new_email',['email','id'],[
+		'valid'=>null,
 		]);
 	
 	if(!$record){
@@ -26,7 +26,7 @@ function verify(){
 		exit;
 	}
 	
-	$db->update('xixi_emails_better',[
+	$db->update('xixi_new_email',[
 		'valid'=>'doing'
 		],[
 		'id'=>$record['id'],
@@ -40,7 +40,7 @@ function verify(){
 	}
 	date_default_timezone_set('Asia/Shanghai');
 	echo ' | '.$result['id'].' '.$resultText.' at '.date('Y-m-d H:i:s')."\n";
-	$db->update('xixi_emails_better',['valid'=>$resultText],[
+	$db->update('xixi_new_email',['valid'=>$resultText],[
 			'id'=>$record['id'],
 			]);
 	
@@ -53,7 +53,7 @@ function verifyEmail($email,$id){
 
 //设置！
 $names=array('david','joe','rose','mike','brown','trumb','amy','ellen','Aaron','Abbas','Abelard','Ableson','Abner','Adolph','Aesculapius','Aelfric','Baal','Bacchus','Balaam','Caldwell','Carlson','Carney','Dailey','Damian','Dante');
-$domains=array('@vip.jhclothes.com','@info.jhclothes.com','@email.jhclothes.com','@mail.jhclothes.com','@notice.jhclothes.com','@shanghai.jhclothes.com','@beijing.jhclothes.com','@nanjing.jhclothes.com','@hangzhou.jhclothes.com','@chengdu.jhclothes.com','@shenzhen.jhclothes.com','@guangzhou.jhclothes.com','@chongqing.jhclothes.com');//这个要真设置了才能写的！
+$domains=array('@vip.findokay.com','@info.findokay.com','@email.findokay.com','@mail.findokay.com','@notice.findokay.com','@shanghai.findokay.com','@beijing.findokay.com','@nanjing.findokay.com','@hangzhou.findokay.com','@chengdu.findokay.com','@shenzhen.findokay.com','@guangzhou.findokay.com','@chongqing.findokay.com');//这个要真设置了才能写的！
 
 $from=$names[array_rand($names,1)].rand(10,100).$domains[array_rand($domains,1)];
 
